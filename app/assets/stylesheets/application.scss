@@ -1,0 +1,57 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's 
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require rails_bootstrap_forms
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+* {
+  	//font-family: 'Dancing Script', cursive;
+	//font-family: 'Satisfy', cursive;
+	//font-family: 'Oleo Script Swash Caps', cursive;
+	//font-family: 'Quintessential', cursive;
+	//font-family: 'Cormorant Upright', serif;
+	//font-family: 'Eagle Lake', cursive;
+	//font-family: 'Smythe', cursive;
+	//font-family: 'Felipa', cursive;
+	font-family: 'Montserrat', sans-serif;
+	font-color: white;
+ }
+
+ body { 
+	//background: url('/assets/coffee1.jpg');
+	//background-repeat: no-repeat;
+	//background-size: 100% auto;
+	//background-attachment: fixed;
+	//background-color: rgb(192,185,207);
+}
+
+.opacity {
+	background-color: rgba(0,0,0,.5);
+	backdrop-filter: blur(4px);
+}
+
+.bwhite {
+	background-color: black;
+	font-color: white;
+}
+
+.wblack {
+	background-color:rgba(71,176,85,.9);
+	backdrop-filter: blur(4px);
+	font-color: white;
+}
+
+p, h3 {
+	font-color: black;
+}

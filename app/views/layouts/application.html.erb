@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejetourcafe</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright|Dancing+Script:400,700|Eagle+Lake|Felipa|Montserrat|Oleo+Script+Swash+Caps|Quintessential|Satisfy|Smythe" rel="stylesheet">
+
+    <nav class = "navbar navbar-inverse" role = "navigation" style="
+        background-color: rgba(0,0,0,1);
+        font-size: 1.7em;">
+        <div class = "navbar-header">
+            <button type = "button" class = "navbar-toggle" 
+            data-toggle = "collapse" data-target = "#example-navbar-collapse">
+            <span class = "sr-only">Toggle navigation</span>
+            <span class = "icon-bar"></span>
+            <span class = "icon-bar"></span>
+            <span class = "icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="font-size: 1.8em; font-family: 'Satisfy', cursive;">Eje Tour</a>
+        </div>
+        <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
+            <ul class = "nav navbar-nav">
+                <li><a href = "/">About Us</a></li>
+                <li><a href = "/">Contacts</a></li>
+                <li><a href = "/">Feedback</a></li>
+            </ul>
+            <%= render "partials/login"%>
+        </div>
+    </nav>
+
+  </head>
+
+  <body>
+  <font color="black">
+
+    <%= yield %>
+
+  </body>
+</html>
+
