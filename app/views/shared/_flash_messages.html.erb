@@ -1,0 +1,6 @@
+<% flash.each do |type, message| %>
+  <div class="alert <%= bootstrap_class_for(type) %> fade in" style="margin: 0;
+  	 height: 50px; font-size: 19px; text-align: center;">
+    <%= message %>
+  </div>
+<% end %>

@@ -15,3 +15,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 200).slideUp(800, function(){
+        $(this).remove(); 
+    });
+}, 2500);

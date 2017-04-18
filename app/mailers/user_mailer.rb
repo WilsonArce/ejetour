@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-	def notify_login(user)
+	def notify_account(user)
 		@user = user
 		mail to: @user.email, subject: "Bienvenido"
 	end
