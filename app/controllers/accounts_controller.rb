@@ -7,6 +7,41 @@ class AccountsController < ApplicationController
     @accounts = Account.all
   end
 
+  def set_current_account
+    @account = Account.find(params[:id])
+    current_user.accounts.each do |ac|
+      if ac.id == @account.id
+        ac.update_attribute(:state, "connected")
+      else
+        ac.update_attribute(:state, "active")
+      end
+    end
+    redirect_to accounts_path
+  end
+
+  def set_state
+    @account = Account.find(params[:id])
+    if @account.state == "pending" or @account.state == "inactive"
+      @account.update_attribute(:state, "active")
+    elsif @account.state == "active"
+      @account.update_attribute(:state, "inactive")
+    end
+    redirect_to accounts_path
+  end
+
+  def apply_account
+    if current_account.role == "subscribed"
+      @account = Account.create(user_id: current_user.id, role: "admin",
+         state: "pending", category: "turismo", location: "utp")
+    else
+      if current_account.role == "admin"
+        @account = Account.create(user_id: current_user.id, role: "root",
+         state: "pending", category: "turismo", location: "utp")
+      end
+    end
+    redirect_to accounts_path
+  end
+
   # GET /accounts/1
   # GET /accounts/1.json
   def show
@@ -64,6 +99,7 @@ class AccountsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_account
       @account = Account.find(params[:id])

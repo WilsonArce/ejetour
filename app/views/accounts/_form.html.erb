@@ -1,4 +1,4 @@
-<%= form_with(model: account, local: true) do |f| %>
+<%= bootstrap_form_for(account) do |f| %>
   <% if account.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -12,23 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :role %>
-    <%= collection_select(:role, :name, current_user.roles, :name, :name, {}) %>
+    <%= f.text_field :role, disabled: true %>
   </div>
 
   <div class="field">
-    <%= f.label :state %>
-    <%= f.text_field :state, value: "pending", disabled: false %>
+    <%= f.text_field :state, disabled: false %>
   </div>
 
   <div class="field">
-    <%= f.label :category %>
-    <%= f.text_field :category, value: "turismo", disabled: false %>
+    <%= f.text_field :category, value: "turismo", disabled: true %>
   </div>
 
   <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location, value: "pereira", disabled: false %>
+    <%= f.text_field :location, value: "pereira", disabled: true %>
   </div>
 
   <div class="actions">

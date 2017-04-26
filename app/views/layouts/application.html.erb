@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ejetourcafe</title>
+    <title>Ejetour</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,9 +26,14 @@
         </div>
         <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
             <ul class = "nav navbar-nav">
-                <li><a href = "/">About Us</a></li>
-                <li><a href = "/">Contacts</a></li>
-                <li><a href = "/">Feedback</a></li>
+                <li><a href = "/">Nosotros</a></li>
+                <li><a href = "/">Contactos</a></li>
+                <li><a href = "/">Comentarios</a></li>
+                <% if user_signed_in? and current_account%>
+                    <% unless current_account.role == "root"%>
+                        <li style="background-color: rgba(30,200,100,.3)"><a href = "/"><%= current_account.category%></a></li>
+                    <%end%>
+                <%end%>
             </ul>
             <%= render "partials/login"%>
         </div>

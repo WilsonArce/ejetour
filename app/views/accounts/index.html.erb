@@ -1,36 +1,95 @@
 <!--p id="notice"><%= notice %></p-->
-
-<h1>Accounts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Role</th>
-      <th>State</th>
-      <th>Category</th>
-      <th>Location</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @accounts.each do |account| %>
+<% if user_signed_in? %>
+<div class="container">
+  <h1>Mis cuentas</h1>
+  <table class="table">
+    <thead>
       <tr>
-      <% if user_signed_in? and current_user.email == account.user.email %>
-        <td><%= account.user.email %> -- </td>
-        <td><%= account.role %> -- </td>
-        <td><%= account.state %> -- </td>
-        <td><%= account.category %> -- </td>
-        <td><%= account.location %> -- </td>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <!--td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td-->
-      <%end%>
-    <%end%>
+        <th>Estado</th>
+        <th>Rol</th>
+        <th>Descripción</th>
+        <th colspan="3"></th>
       </tr>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+  <% if user_signed_in?%>
+    <tbody>
+      <% current_user.accounts.each do |ac| %>
+        <tr>
+          <% unless current_account.id == ac.id %>
+            <% if ac.state == "active" %>
+              <td><%= button_to 'Usar', set_current_account_path(ac.id), :class => 'btn btn-xs btn-success'%>
+            <% elsif ac.state == "pending"%>
+              <td><%= button_to 'Pendiente', current_account = ac , :class => 'btn btn-xs btn-warning',
+              :disabled => true %>
+            <% elsif ac.state == "inactive"%>
+              <td><%= button_to 'Inactiva', current_account = ac , :class => 'btn btn-xs btn-warning',
+              :disabled => true %>
+            <%end%>
+          <%else%>
+            <td><%= button_to 'Usando', current_account = ac , :class => 'btn btn-xs btn-warning',
+              :disabled => true %>
+          <%end%>
+          <td><%= ac.role %></td>
+          <td><%= Role.find_by_name(ac.role).description %></td>
+          <% unless current_user.accounts.find_by_role("admin") || current_account.role == "root" %>
+            <td><%= button_to 'Aplicar para administrador', {:controller => "accounts", :action => "apply_account", :method=>:post }, :class => 'btn btn-xs btn-primary' %></td>
+          <%end%>
+        </tr>
+      <% end %>
+    </tbody>
+  <%end%>
+  </table>
+  <br>
+</div>
+<div class="table-responsive container">
+  <h1>Cuentas administradas</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>Rol</th>
+        <th>Categoría</th>
+        <th>Ubicación</th>
+        <th>Estado</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @accounts.each do |account| %>
+        <tr>
+        <% if current_account.role == "admin" and account.role == "subscribed"%>
+          <td><%= account.user.email %></td>
+          <td><%= account.role %></td>
+          <td><%= account.category %></td>
+          <td><%= account.location %></td>
+          <td><%= account.state %></td>
+          <!--td><button class="btn btn-xs btn-success" onclick="window.location = '/accounts'">Allow</button></td-->
+          <td><%= button_to 'Cambiar estado', set_state_path(account.id), :class => 'btn btn-xs btn-primary'%>
+          <!--td><%= link_to 'Show', account %></td>
+          <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td-->
+        <%else%>
+          <% if current_account.role == "root" and account.role == "admin"%>
+            <td><%= account.user.email %></td>
+            <td><%= account.role %></td>
+            <td><%= account.category %></td>
+            <td><%= account.location %></td>
+            <td><%= account.state %></td>
+
+            <td><%= button_to 'Cambiar estado', set_state_path(account.id), :class => 'btn btn-xs btn-primary'%>
+
+            <!--td><%= link_to 'Edit', edit_account_path(account), class: "btn btn-xs btn -success" %></td-->
+            <!--td><%= link_to 'Show', account %></td>
+            <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td-->
+          <%end%>
+        <%end%>
+      <%end%>
+        </tr>
+    </tbody>
+  </table>
+  <br>
 <% link_to 'New Account', new_account_path %>
+</div>
+<%end%>
+

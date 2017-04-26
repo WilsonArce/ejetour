@@ -1,27 +1,27 @@
 <div class="container">
-<h1>Sign up</h1>
+<h1>Crear cuenta</h1>
   <div class="row">
     <div class="col-md-5 col-centered" align="left" style="font-size: 1.1em;">
         <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
-        <%= f.text_field :name, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :last_name, autofocus: true, disabled: false, required: true%>
-        <%= f.number_field :age, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :dni, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :gender, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :address, autofocus: true, disabled: false, required: true%>
-        <%= f.phone_field :phone_number, autofocus: true, disabled: false, required: true%>
+        <%= f.text_field :name, label: "Nombre / Name", autofocus: true, disabled: false, required: true%>
+        <%= f.text_field :last_name, label: "Apellidos / Last name",autofocus: true, disabled: false, required: true%>
+        <%= f.number_field :age, label: "Edad / Age", autofocus: true, disabled: false, required: true%>
+        <%= f.text_field :dni, label: "Documento / DNI", autofocus: true, disabled: false, required: true%>
+        <%= f.select :gender, ["Femenino", "Masculino", "Otro"], autofocus: true, disabled: false, required: true, label: "Género / Gender"%>
+        <%= f.text_field :address, label: "Dirección / Address", autofocus: true, disabled: false, required: true%>
+        <%= f.phone_field :phone_number, label: "Teléfono / Phone number", autofocus: true, disabled: false, required: true%>
 
     </div>
     <div class="col-md-5 col-centered" align="left" style="font-size: 1.1em;">
        
-        <%= f.text_field :city, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :country, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :location, autofocus: true, disabled: false, required: true%>
+        <%= f.select(:country, ["Colombia","Venezuela","Ecuador","Argentina"], required: true, label: "País / Country") %>
+        <%= f.text_field :city, autofocus: true, disabled: false, required: true, label: "Ciudad / City"%>
+        <%= f.text_field :location, autofocus: true, disabled: false, required: true, label: "Ubicación / Location"%>
 
-        <%= f.email_field :email, autofocus: true, placeholder: "name@example.com", required: true%>
-        <%= f.password_field :password, autocomplete: "off", placeholder: "#{@minimum_password_length} characters minimun", required: true %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: true, required: true %>
+        <%= f.email_field :email, autofocus: true, placeholder: "name@example.com", required: true, label: "Correo electrónico / E-mail"%>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "#{@minimum_password_length} characters minimun", required: true, label: "Contraseña / Password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: true, required: true, label: "Confirmar contraseña / Password confirmation" %>
 
     </div>
 
@@ -31,7 +31,7 @@
   </div>
 </div>
 <div class="actions" align="center" style="margin-bottom: .5cm">
-  <%= f.submit "Sign up" %>
+  <%= f.submit "Crear cuenta", :class => 'btn btn-md btn-primary' %>
 <%end%>
   <%= render "devise/shared/links" %>
 </div>

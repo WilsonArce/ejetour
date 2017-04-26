@@ -16,6 +16,9 @@ gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 
+#toggle
+#gem 'bootstrap-toggle-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -38,6 +41,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 
 gem 'bootstrap_form'
+
+gem 'carmen-rails', '~> 1.0.0'
 
 gem 'devise'
 gem 'authority'

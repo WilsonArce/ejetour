@@ -1,28 +1,30 @@
 <!--p id="notice"><%= notice %></p-->
-<p>
-  <strong>User:</strong>
-  <%= @account.user.name %>
-</p>
+<div class="container">
+  <p class="h4">
+    <strong>User:</strong>
+    <%= @account.user.name %>
+  </p>
 
-<p>
-  <strong>Role:</strong>
-  <%= @account.role %>
-</p>
+  <p class="h4">
+    <strong>Role:</strong>
+    <%= @account.role %>
+  </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @account.state %>
-</p>
+  <p class="h4">
+    <strong>State:</strong>
+    <%= @account.state %>
+  </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @account.category %>
-</p>
+  <p class="h4">
+    <strong>Category:</strong>
+    <%= @account.category %>
+  </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @account.location %>
-</p>
+  <p class="h4">
+    <strong>Location:</strong>
+    <%= @account.location %>
+  </p>
 
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>
+</div>

@@ -60,6 +60,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carmen (1.0.2)
+      activesupport (>= 3.0.0)
+    carmen-rails (1.0.1)
+      carmen (~> 1.0.0)
+      rails
     childprocess (0.6.3)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.2.1)
@@ -191,6 +196,7 @@ DEPENDENCIES
   bootstrap_form
   byebug
   capybara (~> 2.13.0)
+  carmen-rails (~> 1.0.0)
   coffee-rails (~> 4.2)
   devise
   jbuilder (~> 2.5)
