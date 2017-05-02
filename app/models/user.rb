@@ -18,7 +18,7 @@ class User < ApplicationRecord
 		role = Role.find_by_name("subscribed")
 		UsersRole.create(role_id: role.id, user_id: self.id)
 		Account.create(user_id: self.id, role: role.name, state: "pending", category: "turismo", location: "utp")
-		UserMailer.notify_account(self).deliver
+		#UserMailer.notify_account(self).deliver
 	end
 
 end
