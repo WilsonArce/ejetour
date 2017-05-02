@@ -23,7 +23,7 @@
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
         <%= f.password_field :password, autocomplete: "off", placeholder: "leave blank if you don't want to change it" %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "#{@minimum_password_length} characters minimum" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "#{@minimum_password_length}6 characters minimum" %>
         <%= f.password_field :current_password, autocomplete: "off", placeholder: "we need your current password to confirm your changes" %>
       </div>
     </div>
