@@ -42,6 +42,8 @@
   </table>
   <br>
 </div>
+
+<% if current_account.role != "subscribed" %>
 <div class="table-responsive container">
   <h1>Cuentas administradas</h1>
   <table class="table">
@@ -91,5 +93,6 @@
   <br>
 <% link_to 'New Account', new_account_path %>
 </div>
+<%end%>
 <%end%>
 
