@@ -44,7 +44,7 @@ gem 'bootstrap_form'
 
 gem 'carmen-rails', '~> 1.0.0'
 
-gem 'devise'
+gem "devise", git: 'https://github.com/plataformatec/devise.git'
 gem 'authority'
 gem 'rolify'
 
