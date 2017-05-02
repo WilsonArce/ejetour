@@ -11,7 +11,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
@@ -67,13 +67,13 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: 'https://ejetourcafe.herokuapp.com/',
+    domain: 'https://ejetourcafe.herokuapp.com',
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "wdarceq@gmail.com",
     password: "gm123456"
   }
-  config.action_mailer.default_url_options = { host: 'https://ejetourcafe.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'https://ejetourcafe.herokuapp.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
