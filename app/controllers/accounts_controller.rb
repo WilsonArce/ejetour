@@ -23,6 +23,7 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     if @account.state == "pending" or @account.state == "inactive"
       @account.update_attribute(:state, "active")
+      UserMailer.notify_state(@account.user).deliver
     elsif @account.state == "active"
       @account.update_attribute(:state, "inactive")
     end

@@ -45,7 +45,7 @@ Rails.application.configure do
     user_name: "wdarceq@gmail.com",
     password: "gm123456"
   }
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { :protocol => 'https', host: 'localhost:3000' }
 
 
   # Raise an error on page load if there are pending migrations.

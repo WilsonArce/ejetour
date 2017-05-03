@@ -73,7 +73,7 @@ Rails.application.configure do
     user_name: "wdarceq@gmail.com",
     password: "gm123456"
   }
-  config.action_mailer.default_url_options = { host: 'ejetourcafe.herokuapp.com' }
+  config.action_mailer.default_url_options = { :protocol => 'https', host: 'ejetourcafe.herokuapp.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
