@@ -1,30 +1,30 @@
   <div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <h2>Editar usuario <% resource_name.to_s.humanize %></h2>
     <div class="row">
       <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
       <div class=" field col-md-5 col-centered" align="left" style="font-size: 1.1em;">
-        <%= f.text_field :name, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :last_name, autofocus: true, disabled: false, required: true%>
-        <%= f.number_field :age, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :dni, autofocus: true, disabled: true, required: true%>
-        <%= f.text_field :gender, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :address, autofocus: true, disabled: false, required: true%>
-        <%= f.phone_field :phone_number, autofocus: true, disabled: false, required: true%>
+        <%= f.text_field :name, label: "Nombre / Name", autofocus: true, disabled: false, required: true%>
+        <%= f.text_field :last_name, label: "Apellidos / Last name",autofocus: true, disabled: false, required: true%>
+        <%= f.number_field :age, label: "Edad / Age", autofocus: true, disabled: false, required: true%>
+        <%= f.text_field :dni, label: "Documento / DNI", autofocus: true, disabled: true, required: true%>
+        <%= f.select :gender, ["Femenino", "Masculino", "Otro"], autofocus: true, disabled: false, required: true, label: "Género / Gender"%>
+       <%= f.text_field :address, label: "Dirección / Address", autofocus: true, disabled: false, required: true%>
+        <%= f.phone_field :phone_number, label: "Teléfono / Phone number", autofocus: true, disabled: false, required: true%>
 
       </div>
       <div class=" field col-md-5 col-centered" align="left" style="font-size: 1.1em;">
         
-        <%= f.text_field :city, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :country, autofocus: true, disabled: false, required: true%>
-        <%= f.text_field :location, autofocus: true, disabled: false, required: true%>
-        <%= f.email_field :email, autofocus: true, disabled: true %>
+       <%= f.select(:country, ["Colombia","Venezuela","Ecuador","Argentina"], required: true, label: "País / Country") %>
+        <%= f.text_field :city, autofocus: true, disabled: false, required: true, label: "Ciudad / City"%>
+        <%= f.text_field :location, autofocus: true, disabled: false, required: true, label: "Ubicación / Location"%>
+        <%= f.email_field :email, autofocus: true, disabled: true, label: "Correo electrónico / E-mail" %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-        <%= f.password_field :password, autocomplete: "off", placeholder: "leave blank if you don't want to change it" %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "#{@minimum_password_length} characters minimum" %>
-        <%= f.password_field :current_password, autocomplete: "off", placeholder: "we need your current password to confirm your changes" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "leave blank if you don't want to change it", label: "Contraseña / Password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "#{@minimum_password_length} characters minimum", label: "Confirmar contraseña / Password confirmation" %>
+        <%= f.password_field :current_password, autocomplete: "off", placeholder: "we need your current password to confirm your changes", label: "Contraseña actual / Current password" %>
       </div>
     </div>
   </div>
@@ -33,6 +33,6 @@
   <%= f.submit "Actualizar", :class => 'btn btn-md btn-primary' %>
   <% end %><br><br>
   <p>Unhappy? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Estás seguro?" }, method: :delete, :class => 'btn btn-xs btn-danger' %></p>
-  <%= link_to "Back", :back %>
+  <%= link_to "Regresar", :back %>
 </div>
 
