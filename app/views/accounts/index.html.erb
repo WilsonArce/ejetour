@@ -1,14 +1,14 @@
 <!--p id="notice"><%= notice %></p-->
 <% if user_signed_in? %>
 <div class="container">
-  <ul class="breadcrumb">
+  <ul class="breadcrumb" style="background:#C0E89B">
     <h1>Mis cuentas</h1>
   </ul>
 </div>
 <div class="table-responsive container">
-  <table class="table">
+  <table class="table table-hover">
     <thead>
-      <tr>
+      <tr style="background:lightgrey">
         <th>Estado</th>
         <th>Rol</th>
         <th>Descripción</th>
@@ -46,17 +46,17 @@
   </table>
   <br>
 </div>
-
+<hr style="border:1px solid black">
 <% if current_account.role != "subscribed" %>
 <div class="container">
-  <ul class="breadcrumb">
+  <ul class="breadcrumb" style="background:#C0E89B">
     <h1>Cuentas administradas</h1>
   </ul>
 </div>
 <div class="table-responsive container">
-  <table class="table">
+  <table class="table table-hover">
     <thead>
-      <tr>
+      <tr style="background:lightgrey">
         <th>Usuario</th>
         <th>Rol</th>
         <th>Categoría</th>
@@ -101,6 +101,7 @@
   <br>
 <% link_to 'New Account', new_account_path %>
 </div>
+<hr style="border:1px solid black">
 <%end%>
 <%end%>
 <% if current_account.role == "admin" %>

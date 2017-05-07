@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <ul class="breadcrumb">
+      <ul class="breadcrumb" style="background:#C0E89B">
         <h1>Artículos</h1>
         <h><%= link_to 'Nuevo artículo', new_article_path %></h>
       </ul>
@@ -13,12 +13,14 @@
       <div class="scrolling outer">
         <div class="inner">
           <table class="table table-hover table-condensed table-bordered">
-            <tr>
-              <th>Nombre</th>
+          <thead>
+            <tr style="font-weight:bold; background:lightgrey">
+              <th style="background:lightgrey">Nombre</th>
               <td>Información</td>
               <td>Ubicación</td>
               <td colspan="3"></td>
             </tr>
+          </thead>
             <tbody>
               <% @articles.each do |article| %>
                 <tr>
