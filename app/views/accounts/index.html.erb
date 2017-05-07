@@ -1,7 +1,11 @@
 <!--p id="notice"><%= notice %></p-->
 <% if user_signed_in? %>
+<div class="container">
+  <ul class="breadcrumb">
+    <h1>Mis cuentas</h1>
+  </ul>
+</div>
 <div class="table-responsive container">
-  <h1>Mis cuentas</h1>
   <table class="table">
     <thead>
       <tr>
@@ -44,8 +48,12 @@
 </div>
 
 <% if current_account.role != "subscribed" %>
+<div class="container">
+  <ul class="breadcrumb">
+    <h1>Cuentas administradas</h1>
+  </ul>
+</div>
 <div class="table-responsive container">
-  <h1>Cuentas administradas</h1>
   <table class="table">
     <thead>
       <tr>
