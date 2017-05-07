@@ -1,0 +1,38 @@
+<!--p id="notice"><%= notice %></p-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="breadcrumb">
+        <h1>Artículos</h1>
+        <h><%= link_to 'Nuevo artículo', new_article_path %></h>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="scrolling outer">
+        <div class="inner">
+          <table class="table table-hover table-condensed table-bordered">
+            <tr>
+              <th>Nombre</th>
+              <td>Información</td>
+              <td>Ubicación</td>
+              <td colspan="3"></td>
+            </tr>
+            <tbody>
+              <% @articles.each do |article| %>
+                <tr>
+                  <th><%= article.title %></th>
+                  <td><%= truncate(article.body) %></td>
+                  <td><%= article.location %></td>
+                  <td><%= link_to 'Show', article %></td>
+                  <td><%= link_to 'Edit', edit_article_path(article) %></td>
+                  <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+          </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

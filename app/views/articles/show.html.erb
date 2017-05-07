@@ -1,0 +1,29 @@
+<!--p id="notice"><%= notice %></p-->
+<div class="container">
+ <!-- Project One -->
+    <div class="row">
+        <div class="col-md-5">
+            <a href="#">
+                <!--img class="img-responsive" src="http://placehold.it/500x300" alt=""-->
+                <%=image_tag("eje_cafetero.jpg", class: "img-responsive" )%>
+            </a>
+        </div>
+        <div class="col-md-5 ">
+	        <ul class="breadcrumb">
+	            <h3 style="color:black"><%= @article.title %></h3>
+	            <h><%= @article.location %></h>
+	        </ul>
+	            <textarea disabled style="color:black" class="form-control"><%= @article.body %></textarea>
+	            <br>
+	            <a class="btn btn-primary" href="#">Me gusta! <span class="glyphicon glyphicon-thumbs-up"></span>
+	            </a>
+	        <div class="row-md-3">
+	        	<br>
+	            <%= link_to 'Edit', edit_article_path(@article) %> |
+				<%= link_to 'Back', articles_path %>
+				<br>
+			</div>
+        </div>
+    </div>
+    <hr>
+</div>
