@@ -19,6 +19,10 @@
         </div>
 
         <div class="field">
+          <%= f.file_field :cover, label: "Portada", required: true %>
+        </div>
+
+        <div class="field">
           <%= f.text_area :body, label: "Cuerpo", required: true %>
         </div>
 
@@ -26,6 +30,13 @@
           <%= f.text_field :location, label: "Ubicación", required: true %>
         </div>
 
+        <h2>Categorias</h2>
+            <% @categories.each do |category| %>
+            <div class="field">
+              <%= check_box_tag "categories[]", category.id %> <%= category.name %>
+            </div>
+            <%end%>
+        <br>
         <div class="actions">
           <%= f.submit "Crear artículo", :class => 'btn btn-md btn-primary' %>
         </div>

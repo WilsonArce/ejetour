@@ -1,7 +1,7 @@
 <!--p id="notice"><%= notice %></p-->
 <% if user_signed_in? %>
 <div class="container">
-  <ul class="breadcrumb" style="background:#C0E89B">
+  <ul class="breadcrumb">
     <h1>Mis cuentas</h1>
   </ul>
 </div>
@@ -49,7 +49,7 @@
 <hr style="border:1px solid black">
 <% if current_account.role != "subscribed" %>
 <div class="container">
-  <ul class="breadcrumb" style="background:#C0E89B">
+  <ul class="breadcrumb">
     <h1>Cuentas administradas</h1>
   </ul>
 </div>
@@ -72,7 +72,7 @@
         <% if current_account.role == "admin" and account.role == "subscribed"%>
           <td><%= account.user.email %></td>
           <td><%= account.role %></td>
-          <td><%= account.category %></td>
+          <td><%= account.role %></td>
           <td><%= account.location %></td>
           <td><%= account.state %></td>
           <!--td><button class="btn btn-xs btn-success" onclick="window.location = '/accounts'">Allow</button></td-->

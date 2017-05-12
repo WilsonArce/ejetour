@@ -3,15 +3,17 @@
  <!-- Project One -->
     <div class="row">
         <div class="col-md-5">
-            <a href="#">
-                <!--img class="img-responsive" src="http://placehold.it/500x300" alt=""-->
-                <%=image_tag("eje_cafetero.jpg", class: "img-responsive" )%>
-            </a>
+           	<%= image_tag @article.cover.url(), class: "img-responsive" %>
         </div>
         <div class="col-md-5 ">
 	        <ul class="breadcrumb">
 	            <h3 style="color:black"><%= @article.title %></h3>
-	            <h><%= @article.location %></h>
+	            <h>Ubicación:  <%= @article.location %></h>
+	            <br>
+	            <h>Categorias: </h>
+	        	<% @article.categories.each do |category| %>
+	        		<%= link_to category.name, category%>
+	        	<%end%>
 	        </ul>
 	            <textarea disabled style="color:black" class="form-control"><%= @article.body %></textarea>
 	            <br>
@@ -23,7 +25,7 @@
 				<%= link_to 'Back', articles_path %>
 				<br>
 			</div>
+			<hr style="border:1px solid black">
         </div>
     </div>
-    <hr>
 </div>
