@@ -52,11 +52,12 @@ class AccountsController < ApplicationController
   # GET /accounts/new
   def new
     @account = Account.new
-    #@roles = Role.all
+    @categories = Category.all
   end
 
   # GET /accounts/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /accounts
@@ -65,6 +66,7 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params)
     @account = current_user.accounts.new(account_params)
     @account.role = params[:role][:name]
+    @account.categories = params[:categories]
     respond_to do |format|
       if @account.save
         format.html { redirect_to @account, notice: 'Account was successfully created.' }
@@ -80,6 +82,7 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1.json
   def update
     respond_to do |format|
+      @account.categories = params[:categories]
       if @account.update(account_params)
         format.html { redirect_to @account, notice: 'Account was successfully updated.' }
         format.json { render :show, status: :ok, location: @account }
@@ -109,6 +112,6 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:role, :state, :category, :location)
+      params.require(:account).permit(:role, :state, :category, :location, :categories)
     end
 end

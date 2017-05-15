@@ -3,7 +3,12 @@
  <!-- Project One -->
     <div class="row">
         <div class="col-md-5">
-           	<%= image_tag @article.cover.url(), class: "img-responsive" %>
+        <% if @article.cover.content_type == 'video/mp4' %>
+           	<%= video_tag @article.cover.url(), class: "img-responsive", controls: true %>
+        <% else %>
+        	<%= image_tag @article.cover.url(), class: "img-responsive" %>
+        <%end%>
+
         </div>
         <div class="col-md-5 ">
 	        <ul class="breadcrumb">
@@ -21,8 +26,10 @@
 	            </a>
 	        <div class="row-md-3">
 	        	<br>
-	            <%= link_to 'Edit', edit_article_path(@article) %> |
-				<%= link_to 'Back', articles_path %>
+	        	<% if current_account.role == "admin" %>
+		            <%= link_to 'Editar artículo', edit_article_path(@article) %> |
+					<%= link_to 'Artículos', articles_path %>
+				<%end%>
 				<br>
 			</div>
 			<hr style="border:1px solid black">

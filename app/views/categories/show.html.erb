@@ -2,12 +2,41 @@
 <div class="container">
 	<h2><%= @category.name %></h2>
 	<br>
-	<div class="field">
-		<% @category.articles.each do |article| %>
-			<%= link_to article.title, article %>
+	<% @category.articles.each do |article| %>
+		 <!-- Project One -->
+		    <div class="row">
+		        <div class="col-md-6">
+		           	<%= image_tag article.cover.url(:thumb), class: "img-responsive" %>
+		        </div>
+		        <div class="col-md-6 ">
+			        <ul class="breadcrumb">
+			            <h3 style="color:black"><%= article.title %></h3>
+			            <h>Ubicación:  <%= article.location %></h>
+			            <br>
+			            <h>Categorias: </h>
+			        	<% article.categories.each do |category| %>
+			        		<%= link_to category.name, category%>
+			        	<%end%>
+			        </ul>
+			            <textarea disabled style="color:black" class="form-control"><%= article.body %></textarea>
+			            <br>
+			            <a class="btn btn-primary" href="#">Me gusta! <span class="glyphicon glyphicon-thumbs-up"></span>
+			            </a>
+			        <div class="row-md">
+			        	<br>
+			        	<% if current_account.role == "admin" %>
+				            <%= link_to 'Editar artículo', edit_article_path(article) %> |
+							<%= link_to 'Artículos', articles_path %>
+						<%end%>
+						<br>
+					</div>
+		        </div>
+		    </div>
+		    <div class="row"><hr style="border:1px solid black"></div>
 		<%end%>
-	</div>
 	<br>
-	<%= link_to 'Edit', edit_category_path(@category) %> |
-	<%= link_to 'Back', categories_path %>
+	<% if current_account.role == "admin" %>
+		<%= link_to 'Editar categoria', edit_category_path(@category) %> |
+		<%= link_to 'Categorias', categories_path %>
+	<%end%>
 </div>

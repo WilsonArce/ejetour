@@ -35,10 +35,12 @@
               :disabled => true %>
           <%end%>
           <td><%= ac.role %></td>
+
           <td><%= Role.find_by_name(ac.role).description %></td>
           <% unless current_user.accounts.find_by_role("admin") || current_account.role == "root" %>
             <td><%= button_to 'Aplicar para administrador', {:controller => "accounts", :action => "apply_account", :method=>:post }, :class => 'btn btn-xs btn-primary' %></td>
           <%end%>
+          <td><%= link_to "Modificar preferencias", edit_account_path(ac) %></td>
         </tr>
       <% end %>
     </tbody>

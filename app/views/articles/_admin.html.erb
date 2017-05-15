@@ -27,9 +27,9 @@
                   <th><%= article.title %></th>
                   <td><%= truncate(article.body) %></td>
                   <td><%= article.location %></td>
-                  <td><%= link_to 'Show', article %></td>
-                  <td><%= link_to 'Edit', edit_article_path(article) %></td>
-                  <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Ver', article %></td>
+                  <td><%= link_to 'Editar', edit_article_path(article) %></td>
+                  <td><%= link_to 'Eliminar', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
               <% end %>
           </tbody>

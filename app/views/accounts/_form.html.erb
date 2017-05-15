@@ -16,16 +16,20 @@
   </div>
 
   <div class="field">
-    <%= f.text_field :state, disabled: false %>
+    <%= f.text_field :state, disabled: true %>
   </div>
 
   <div class="field">
-    <%= f.text_field :category, value: "turismo", disabled: true %>
+    <%= f.text_field :location, disabled: false %>
   </div>
 
-  <div class="field">
-    <%= f.text_field :location, value: "pereira", disabled: true %>
-  </div>
+  <h2>Categorias</h2>
+      <% @categories.each do |category| %>
+      <div class="field">
+        <%= check_box_tag "categories[]", category.id %> <%= category.name %>
+      </div>
+      <%end%>
+  <br>
 
   <div class="actions">
     <%= f.submit %>

@@ -7,11 +7,31 @@ class Article < ApplicationRecord
 	after_create :save_categories
 
 	has_attached_file :cover, styles: {medium: "1288x720", thumb: "600x400", small:"300x200"}                                                                                                                                                                                                        
-	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
+	#validates_attachment_content_type :cover, :content_type => [/\Aimage\/.*\Z/]
+
+	validates_attachment_content_type :cover,
+		:content_type => ['video/mp4'],
+		:message => "Sorry, right now we only support MP4 video",
+		:if => :is_type_of_video?
+	validates_attachment_content_type :cover,
+		:content_type => ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'],
+		:message => "Different error message",
+		:if => :is_type_of_image?
 
 	def categories=(value)
 		@categories = value
 	end
+
+	protected
+
+	def is_type_of_video?
+		cover.content_type =~ %r(video)
+	end
+
+	def is_type_of_image?
+		cover.content_type =~ %r(image)
+	end
+
 
 	private
 

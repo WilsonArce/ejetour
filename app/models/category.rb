@@ -4,4 +4,7 @@ class Category < ApplicationRecord
 	has_many :has_categories
 	has_many :articles, through: :has_categories
 
+	has_many :preferences
+	has_many :accounts, through: :preferences
+
 end
