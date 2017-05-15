@@ -124,6 +124,9 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    paperclip-ffmpeg (1.2.0)
+      paperclip (>= 2.5.2)
+      rails
     pg (0.20.0-x86-mingw32)
     public_suffix (2.0.5)
     puma (3.8.2)
@@ -218,6 +221,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3.1)
   paperclip
+  paperclip-ffmpeg
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.0.rc1)
