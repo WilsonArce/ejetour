@@ -6,7 +6,12 @@
 		 <!-- Project One -->
 		    <div class="row">
 		        <div class="col-md-6">
-		           	<%= image_tag article.cover.url(:thumb), class: "img-responsive" %>
+		           	<%= article.cover.content_type %>
+				        <% if article.cover.content_type == 'video/mp4' %>
+				           	<%= video_tag article.cover.url(), class: "img-responsive", controls: true %>
+				        <% else %>
+				        	<%= image_tag article.cover.url(), class: "img-responsive" %>
+				        <%end%>
 		        </div>
 		        <div class="col-md-6 ">
 			        <ul class="breadcrumb">

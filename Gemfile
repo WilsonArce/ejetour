@@ -50,6 +50,8 @@ gem 'rolify'
 
 gem 'paperclip'
 
+#gem 'paperclip-av-transcoder'
+
 gem 'paperclip-ffmpeg'
 
 group :development, :test do
