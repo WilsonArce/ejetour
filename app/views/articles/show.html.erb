@@ -3,8 +3,8 @@
  <!-- Project One -->
     <div class="row">
         <div class="col-md-5">
-        <%= @article.cover.content_type %>
-        <% if @article.cover.content_type == 'video/mp4' %>
+        <% @article.cover.content_type %>
+        <% if @article.cover.content_type == 'video/mp4' || @article.cover.content_type == 'application/octet-stream' %>
            	<%= video_tag @article.cover.url(), class: "img-responsive", controls: true %>
         <% else %>
         	<%= image_tag @article.cover.url(:thumb), class: "img-responsive" %>
