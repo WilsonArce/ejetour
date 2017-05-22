@@ -50,7 +50,7 @@ gem 'rolify'
 
 gem 'paperclip'
 
-#gem 'paperclip-av-transcoder'
+gem 'nprogress-rails'
 
 gem 'paperclip-ffmpeg'
 
