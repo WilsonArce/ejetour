@@ -34,11 +34,11 @@ class AccountsController < ApplicationController
   def apply_account
     if current_account.role == "subscribed"
       @account = Account.create(user_id: current_user.id, role: "admin",
-         state: "pending", category: "turismo", location: "utp")
+         state: "pending", location: "utp")
     else
       if current_account.role == "admin"
         @account = Account.create(user_id: current_user.id, role: "root",
-         state: "pending", category: "turismo", location: "utp")
+         state: "pending", location: "utp")
       end
     end
     redirect_to accounts_path

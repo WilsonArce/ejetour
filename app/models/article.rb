@@ -6,8 +6,9 @@ class Article < ApplicationRecord
 	has_many :categories, through: :has_categories
 	after_create :save_categories
 
-	has_attached_file :cover, :s3_protocol => :https#, styles: {:medium => "1288x720", :thumb => "600x400", :small => "300x200"}                                                                                                                                                                                                        
-	#validates_attachment_content_type :cover, :content_type => [/\Aimage\/.*\Z/]
+	has_attached_file :cover, :storage => :cloudinary, :path => ':id/:filename', 
+		:cloudinary_resource_type => :video
+			#, :cloudinary_resource_type => :image 
 
 	validates_attachment_content_type :cover,
 		:content_type => ['video/mp4'],

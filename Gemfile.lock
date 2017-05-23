@@ -56,6 +56,7 @@ GEM
       activesupport (>= 3.0.0)
     autoprefixer-rails (6.7.7.1)
       execjs
+    aws_cf_signer (0.1.3)
     bcrypt (3.1.11-x86-mingw32)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
@@ -79,6 +80,9 @@ GEM
     childprocess (0.6.3)
       ffi (~> 1.0, >= 1.0.11)
     climate_control (0.1.0)
+    cloudinary (1.8.1)
+      aws_cf_signer
+      rest-client
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.2.1)
@@ -89,11 +93,15 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
     erubi (1.6.0)
     execjs (2.7.0)
     ffi (1.9.18-x86-mingw32)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
@@ -114,6 +122,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    netrc (0.11.0)
     nio4r (2.0.0)
     nokogiri (1.7.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
@@ -125,6 +134,8 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    paperclip-cloudinary (1.3.0)
+      cloudinary (~> 1.1)
     paperclip-ffmpeg (1.2.0)
       paperclip (>= 2.5.2)
       rails
@@ -161,6 +172,11 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rest-client (2.0.2-x86-mingw32)
+      ffi (~> 1.9)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rolify (5.1.0)
     rubyzip (1.2.1)
     sass (3.4.23)
@@ -193,6 +209,9 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4-x86-mingw32)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.0)
@@ -223,6 +242,7 @@ DEPENDENCIES
   jquery-rails (~> 4.3.1)
   nprogress-rails
   paperclip
+  paperclip-cloudinary
   paperclip-ffmpeg
   pg (~> 0.18)
   puma (~> 3.7)

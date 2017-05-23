@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: widuar
+  api_key: '262319576655493'
+  api_secret: FCD9_0NNiqFf-DCHjVJSub5ej3w
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: widuar
+  api_key: '262319576655493'
+  api_secret: FCD9_0NNiqFf-DCHjVJSub5ej3w
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: widuar
+  api_key: '262319576655493'
+  api_secret: FCD9_0NNiqFf-DCHjVJSub5ej3w
+  enhance_image_tag: true
+  static_image_support: false
