@@ -6,8 +6,7 @@ class Article < ApplicationRecord
 	has_many :categories, through: :has_categories
 	after_create :save_categories
 
-	has_attached_file :cover, :storage => :cloudinary, :path => ':id/:filename', 
-		:cloudinary_resource_type => :video
+	has_attached_file :cover #, :storage => :cloudinary, :path => ':id/:filename', :cloudinary_resource_type => :video
 			#, :cloudinary_resource_type => :image 
 
 	validates_attachment_content_type :cover,

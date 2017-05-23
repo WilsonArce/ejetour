@@ -6,7 +6,7 @@
         <%end%>
         <span class="glyphicon glyphicon-user">
         </a>
-        <ul class = "nav navbar-nav navbar-inverse dropdown-menu" role = "navigation" style="font-size: 0.9em;
+        <ul class = "nav navbar-nav navbar-inverse dropdown-menu" role = "navigation" style="font-size: 0.7em;
         background-color: rgba(4,4,40,0.9);"> 
 
         <% if user_signed_in?%>
@@ -15,9 +15,9 @@
             <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
             <li class = "divider"></li>
             <% if current_account %>
-                <li><%= link_to "Rol", accounts_path%></li>
+                <li><%= link_to "Perfíl", accounts_path%></li>
             <%else%>
-                <li><%= link_to "Rol", '/home/info' %></li>
+                <li><%= link_to "Perfíl", '/home/info' %></li>
             <%end%>
             <li class = "divider"></li>
             <!--li><%= link_to "Cancel account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %></li-->

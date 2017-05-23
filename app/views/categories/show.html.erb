@@ -1,6 +1,9 @@
 <!--p id="notice"><%= notice %></p-->
 <div class="container">
 	<h2><%= @category.name %></h2>
+	<% if current_account.role == "admin" %>
+		<h3><%= link_to "Nuevo artículo", new_article_path %></h3>
+	<%end%>
 	<br>
 	<% @category.articles.each do |article| %>
 		 <!-- Project One -->
