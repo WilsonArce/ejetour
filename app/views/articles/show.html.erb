@@ -28,8 +28,8 @@
 	        <div class="row-md-3">
 	        	<br>
 	        	<% if current_account.role == "admin" %>
-		            <%= link_to 'Editar artículo', edit_article_path(@article) %> |
-					<%= link_to 'Artículos', accounts_path %>
+		            <%= link_to 'Editar artículo', edit_article_path(@article) %>
+					<% link_to 'Artículos', accounts_path %>
 				<%end%>
 				<br>
 			</div>
