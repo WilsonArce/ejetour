@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512135116) do
+ActiveRecord::Schema.define(version: 20170528204140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(version: 20170512135116) do
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_preferences_on_account_id"
     t.index ["category_id"], name: "index_preferences_on_category_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "nombre"
+    t.text "descripcion"
+    t.string "imagen"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "imagen_file_name"
+    t.string "imagen_content_type"
+    t.integer "imagen_file_size"
+    t.datetime "imagen_updated_at"
   end
 
   create_table "roles", force: :cascade do |t|
