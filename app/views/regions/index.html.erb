@@ -1,7 +1,9 @@
 <!--p id="notice"><%= notice %></p-->
 <div class="container">
   <h1>Regiones</h1>
-  <%= link_to 'New Region', new_region_path %>
+  <% if current_account.role == "admin" %>
+    <%= link_to 'Nueva region', new_region_path %>
+  <%end%>
   <br><br>
   <div class="row">
       <div class="col-md-12">
@@ -22,8 +24,10 @@
                 <td><%= region.descripcion %></td>
                 <!--td><%= region.imagen %></td-->
                 <td><%= link_to 'Ver', region %></td>
+                <% if current_account.role == "admin" %>
                 <td><%= link_to 'Editar', edit_region_path(region) %></td>
                 <td><%= link_to 'Eliminar', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <%end%>
               </tr>
             <% end %>
           </tbody>

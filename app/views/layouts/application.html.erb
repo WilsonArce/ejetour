@@ -38,6 +38,7 @@
                 </li>
                 <% if user_signed_in? and current_account%>
                     <% unless current_account.role == "root"%>
+                        <li><%= link_to "A donde ir", regions_path %></li>
                         <% current_account.categories.each do |category| %>
                             <li style="background-color: rgba(30,200,100,.3)"><%= link_to category.name, category %></li>
                         <%end%>

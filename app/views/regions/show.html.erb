@@ -1,20 +1,52 @@
 <!--p id="notice"><%= notice %></p-->
 <div class="container">
-	<div class="col">
-    <div class="row-md-5">
-			<h1><%= @region.nombre %></h1>
-		</div>
-
-		<div class="row-md-5">
-			<%= image_tag @region.imagen.url(:medium), class: "img-responsive" %>
-		</div>
-
-		<div class="row-md-5">
-			<h><%= @region.descripcion %></h>
-		</div>
-
-		<%= link_to 'Editar', edit_region_path(@region) %> |
-		<%= link_to 'Atras', :back %>
+  <div class="row-md-5" style="text-align: center">
+		<h1><%= @region.nombre %></h1>
+		<% if current_account.role == "admin" %>
+			<h4><%= link_to "Nuevo lugar", new_region_place_path(@region.id) %></h4>
+		<%end%>
 	</div>
 
+	<div class="row-md-5">
+		<%= image_tag @region.imagen.url(:medium), class: "img-responsive", size: "1500"%>
+	</div>
+
+	<div class="row-md-5" style="text-align: center">
+	 	<ul class="breadcrumb">
+			<h><%= @region.descripcion %></h>
+		</ul>
+	</div>
+
+	<!--h1><%= link_to "Lugares", region_places_path(@region)%></h1-->
+	<div>
+		<% @region.places.each do |place| %>
+		<article >
+			<header class="entry-header page-header">
+				<hr class="section-divider" style="border:.8px solid black">
+				<h2 class="entry-title"><%= link_to place.nombre, region_place_path(@region.id, place) %></h2>
+					<div class="entry-meta">
+						Categorias
+					</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+			<div class="entry-content row">
+
+				<div class="col-sm-6">
+					<%= image_tag place.imagen.url(:thumb) %>
+				</div>
+
+				<div class="col-sm-6">
+					<h4><%= place.descripcion %></h4>
+				</div>
+						
+			</div><!-- .entry-content -->
+			<%end%>
+			<hr class="section-divider" style="border:.8px solid black">
+		</article><!-- #post-## -->
+	</div>
+	<% if current_account.role == "admin" %>
+		<%= link_to 'Editar', edit_region_path(@region) %> |
+	<%end%>
+	<%= link_to 'Atras', :back %>
 </div>
+<br><br>

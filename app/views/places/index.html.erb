@@ -1,0 +1,33 @@
+<!--p id="notice"><%= notice %></p-->
+<div class="container">
+  <h1>Lugares</h1>
+  <%= link_to 'Nuevo lugar', new_region_place_path %>
+  <br><br>
+  <div class="row">
+      <div class="col-md-12">
+        <table class="table table-hover table-condensed table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <!--th>Imagen</th-->
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @places.each do |place| %>
+              <tr>
+                <td><%= place.nombre %></td>
+                <td><%= place.descripcion %></td>
+                <!--td><%= place.imagen %></td-->
+                <td><%= link_to 'Ver', [place.region, place] %></td>
+                <td><%= link_to 'Editar', edit_region_place_path(place.region, place) %></td>
+                <td><%= link_to 'Eliminar', [place.region, place], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528204140) do
+ActiveRecord::Schema.define(version: 20170530142451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(version: 20170528204140) do
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_has_categories_on_article_id"
     t.index ["category_id"], name: "index_has_categories_on_category_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "nombre"
+    t.text "descripcion"
+    t.string "imagen"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "imagen_file_name"
+    t.string "imagen_content_type"
+    t.integer "imagen_file_size"
+    t.datetime "imagen_updated_at"
+    t.bigint "region_id"
+    t.index ["region_id"], name: "index_places_on_region_id"
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -117,6 +131,7 @@ ActiveRecord::Schema.define(version: 20170528204140) do
 
   add_foreign_key "has_categories", "articles"
   add_foreign_key "has_categories", "categories"
+  add_foreign_key "places", "regions"
   add_foreign_key "preferences", "accounts"
   add_foreign_key "preferences", "categories"
   add_foreign_key "users_roles", "roles"

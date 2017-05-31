@@ -1,0 +1,21 @@
+<!--p id="notice"><%= notice %></p-->
+<div class="container">
+	<div class="col">
+    <div class="row-md-5">
+			<h1><%= @place.nombre %></h1>
+			<h><%= link_to @place.region.nombre, @place.region %></h>
+		</div>
+
+		<div class="row-md-5">
+			<%= image_tag @place.imagen.url(:medium), class: "img-responsive" %>
+		</div>
+
+		<div class="row-md-5">
+			<h><%= @place.descripcion %></h>
+		</div>
+
+		<%= link_to 'Editar', edit_region_place_path(@place) %> |
+		<%= link_to 'Atras', :back %>
+	</div>
+
+</div>

@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     @categories = Category.all
+    @places = Place.all
   end
 
   # GET /articles/1/edit
