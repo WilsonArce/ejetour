@@ -23,11 +23,11 @@
         </div>
 
         <div class="field">
-          <%= f.text_area :body, label: "Cuerpo", required: true, rows: "8" %>
+          <%= f.text_area :body, label: "Descripción", required: true, rows: "8" %>
         </div>
 
         <div class="field">
-          <%= f.select :location, options_for_select(@places.map{ |c| [c.nombre]}), label: "Ubicación", required: true %>
+          <%= f.select :location, options_for_select(@places.order('nombre ASC').map{ |c| [c.nombre]}), label: "Ubicación", required: true %>
         </div>
 
         <h2>Categorias</h2>

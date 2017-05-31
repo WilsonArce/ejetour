@@ -11,7 +11,7 @@
           <thead>
             <tr>
               <th>Nombre</th>
-              <th>Descripcion</th>
+              <th>Descripción</th>
               <!--th>Imagen</th-->
               <th colspan="3"></th>
             </tr>
@@ -23,7 +23,7 @@
                 <td><%= region.nombre %></td>
                 <td><%= region.descripcion %></td>
                 <!--td><%= region.imagen %></td-->
-                <td><%= link_to 'Ver', region %></td>
+                <td><%= link_to 'Ir', region %></td>
                 <% if current_account.role == "admin" %>
                 <td><%= link_to 'Editar', edit_region_path(region) %></td>
                 <td><%= link_to 'Eliminar', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,21 +1,58 @@
 <!--p id="notice"><%= notice %></p-->
 <div class="container">
-	<div class="col">
-    <div class="row-md-5">
-			<h1><%= @place.nombre %></h1>
-			<h><%= link_to @place.region.nombre, @place.region %></h>
-		</div>
+	<div class="row-md-5" style="text-align: center">
+		<h1><%= @place.nombre %></h1>
+		<h><%= link_to @place.region.nombre, @place.region %></h>
+		<% if current_account.role == "admin" %>
+			<h4><%= link_to "Nuevo Artículo", new_article_path %></h4>
+		<%end%>
+	</div>
 
-		<div class="row-md-5">
-			<%= image_tag @place.imagen.url(:medium), class: "img-responsive" %>
-		</div>
+	<div class="row-md-5">
+		<%= image_tag @place.imagen.url(:medium), class: "img-responsive" %>
+	</div>
 
-		<div class="row-md-5">
+	<div class="row-md-5" style="text-align: center">
+	 	<ul class="breadcrumb">
 			<h><%= @place.descripcion %></h>
+		</ul>
+	</div>
+
+		<div>
+			<% @place_articles.each do |article| %>
+			<article >
+				<header class="entry-header page-header">
+					<hr class="section-divider" style="border:.8px solid black">
+					<h2 class="entry-title"><%= article.title %></h2>
+						<div class="entry-meta">
+							<% article.categories.each do |category| %>
+								<%= link_to category.name, category %>
+							<%end%>
+						</div><!-- .entry-meta -->
+				</header><!-- .entry-header -->
+
+				<div class="entry-content row">
+
+					<div class="col-sm-6">
+						<% if article.cover.content_type == 'video/mp4' || article.cover.content_type == 'application/octet-stream' %>
+           	<%= video_tag article.cover.url(), class: "img-responsive", controls: true %>
+		        <% else %>
+		        	<%= image_tag article.cover.url(:thumb), class: "img-responsive" %>
+		        <%end%>
+					</div>
+
+					<div class="col-sm-6">
+						<h4><%= article.body %></h4>
+					</div>
+							
+				</div><!-- .entry-content -->
+				<%end%>
+				<hr class="section-divider" style="border:.8px solid black">
+			</article><!-- #post-## -->
 		</div>
 
 		<%= link_to 'Editar', edit_region_place_path(@place) %> |
 		<%= link_to 'Atras', :back %>
 	</div>
-
+<br><br>
 </div>

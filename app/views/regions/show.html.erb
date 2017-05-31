@@ -23,16 +23,16 @@
 		<article >
 			<header class="entry-header page-header">
 				<hr class="section-divider" style="border:.8px solid black">
-				<h2 class="entry-title"><%= link_to place.nombre, region_place_path(@region.id, place) %></h2>
+				<h3 class="entry-title"><%= link_to place.nombre, region_place_path(@region.id, place) %></h3>
 					<div class="entry-meta">
-						Categorias
+						breve introducción
 					</div><!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 			<div class="entry-content row">
 
 				<div class="col-sm-6">
-					<%= image_tag place.imagen.url(:thumb) %>
+					<%= image_tag place.imagen.url(:thumb), class: "img-responsive" %>
 				</div>
 
 				<div class="col-sm-6">

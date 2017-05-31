@@ -21,6 +21,13 @@ class PlacesController < ApplicationController
       format.html
       format.xml { render :xml => @places}
     end
+    @place_articles ||= []
+    @articles = Article.all
+    @articles.each do |article|
+      if article.location == @place.nombre
+        @place_articles.push(article)
+      end
+    end
   end
 
   # GET /places/new
@@ -64,7 +71,7 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+        format.html { redirect_to [@place.region, @place], notice: 'Place was successfully updated.' }
         format.json { render :show, status: :ok, location: @place }
       else
         format.html { render :edit }

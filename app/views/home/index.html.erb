@@ -29,7 +29,11 @@
         <% unless article == nil %>
         <div class="col-md-3 hero-feature">
             <div class="thumbnail wblack">
-                <%= image_tag article.cover.url(:medium), class: "img-responsive" %>
+                <% if article.cover.content_type == 'video/mp4' || article.cover.content_type == 'application/octet-stream' %>
+                    <%= video_tag article.cover.url(), class: "img-responsive", controls: true %>
+                <% else %>
+                    <%= image_tag article.cover.url(:thumb), class: "img-responsive" %>
+                <%end%>
                 <div class="caption">
                     <h3><%= article.title %></h3>
                     <% if user_signed_in?%>
