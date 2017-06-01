@@ -6,7 +6,7 @@ class Article < ApplicationRecord
 	has_many :categories, through: :has_categories
 	after_create :save_categories
 
-	has_attached_file :cover , styles: { large: "900x700", medium: "600x400", thumb: "500x300", small: "300x100" }
+	has_attached_file :cover #, styles: { large: "900x700", medium: "600x400", thumb: "500x300", small: "300x100" }
 		#, :storage => :cloudinary, :path => ':id/:filename', :cloudinary_resource_type => :video
 			#, :cloudinary_resource_type => :image 
 

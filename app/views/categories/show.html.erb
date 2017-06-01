@@ -16,7 +16,7 @@
   <div class="row-md-4">
   	<div class="col-md-4">
       <div class="row" style="margin: 8px 8px 8px 8px;">
-       	<% article.cover.content_type %>
+       	<%= article.cover.content_type %>
         <% if article.cover.content_type == 'video/mp4' || article.cover.content_type == 'application/octet-stream' %>
            	<%= video_tag article.cover.url(), class: "img-responsive", controls: true %>
         <% else %>
