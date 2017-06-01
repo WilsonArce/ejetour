@@ -1,8 +1,10 @@
 <!--p id="notice"><%= notice %></p-->
+<div class="jumbotron sombra donde-ir">
+  <h2 style="font-size: 50px; text-align: center; font-color: white"><%= @place.nombre %></h2>
+  <h4 style="margin: -10px 0px 0px 0px; text-align: center"><%= link_to @place.region.nombre, @place.region %></h4>
+</div>
 <div class="container">
-	<div class="row-md-5" style="text-align: center">
-		<h1><%= @place.nombre %></h1>
-		<h><%= link_to @place.region.nombre, @place.region %></h>
+	<div class="row-md-5" style="text-align: left">
 		<% if current_account.role == "admin" %>
 			<h4><%= link_to "Nuevo Artículo", new_article_path %></h4>
 		<%end%>

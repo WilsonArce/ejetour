@@ -21,6 +21,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @places = Places.all
   end
 
   # POST /articles
@@ -28,6 +29,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.categories = params[:categories]
+    @places = Place.all
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -42,7 +44,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    #@places = Place.all
+    @places = Place.all
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }

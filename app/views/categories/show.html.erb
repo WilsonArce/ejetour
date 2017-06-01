@@ -1,50 +1,54 @@
 <!--p id="notice"><%= notice %></p-->
+<div class="jumbotron sombra categorias">
+	<h2 style="font-size: 50px; text-align: center; font-color: white"><%= @category.name %></h2>
+</div>
 <div class="container">
-	<h2><%= @category.name %></h2>
+	<div class="row">
+	<h4>Disfruta de increibles lugares</h4>
 	<% if current_account.role == "admin" %>
-		<h3><%= link_to "Nuevo artículo", new_article_path %></h3>
+		<h4><%= link_to "Nuevo artículo", new_article_path %></h4>
+		<h4><%= link_to 'Editar categoria', edit_category_path(@category) %></h4>
 	<%end%>
+		<hr style="border:0.3px solid black">
+	</div>
 	<br>
 	<% @category.articles.each do |article| %>
-		 <!-- Project One -->
-		    <div class="row">
-		        <div class="col-md-6">
-		           	<%= article.cover.content_type %>
-				        <% if article.cover.content_type == 'video/mp4' || article.cover.content_type == 'application/octet-stream' %>
-				           	<%= video_tag article.cover.url(), class: "img-responsive", controls: true %>
-				        <% else %>
-				        	<%= image_tag article.cover.url(), class: "img-responsive" %>
-				        <%end%>
-		        </div>
-		        <div class="col-md-6 ">
-			        <ul class="breadcrumb">
-			            <h3 style="color:black"><%= article.title %></h3>
-			            <h>Ubicación:  <%= article.location %></h>
-			            <br>
-			            <h>Categorias: </h>
-			        	<% article.categories.each do |category| %>
-			        		<%= link_to category.name, category%>
-			        	<%end%>
-			        </ul>
-			            <textarea disabled style="color:black" class="form-control"><%= article.body %></textarea>
-			            <br>
-			            <a class="btn btn-primary" href="#">Me gusta! <span class="glyphicon glyphicon-thumbs-up"></span>
-			            </a>
-			        <div class="row-md">
-			        	<br>
-			        	<% if current_account.role == "admin" %>
-				          <% link_to 'Editar artículo', edit_article_path(article) %>
-									<% link_to 'Artículos', articles_path %>
-								<%end%>
-						<br>
-					</div>
-		        </div>
-		    </div>
-		    <div class="row"><hr style="border:1px solid black"></div>
-		<%end%>
+  <div class="row-md-4">
+  	<div class="col-md-4">
+      <div class="row" style="margin: 8px 8px 8px 8px;">
+       	<% article.cover.content_type %>
+        <% if article.cover.content_type == 'video/mp4' || article.cover.content_type == 'application/octet-stream' %>
+           	<%= video_tag article.cover.url(), class: "img-responsive", controls: true %>
+        <% else %>
+        	<%= image_tag article.cover.url(), class: "img-responsive" %>
+        <%end%>
+				<div class="caption">
+		      <div class="breadcrumb" style="border: .3px solid grey;">
+		          <h2 style="font-size: 20px"><%= article.title %></h2>
+		          <h>Ubicación:  <%= article.location %></h>
+		          <br>
+		          <h>Categorias: </h>
+		      	<% article.categories.each do |category| %>
+		      		<%= link_to category.name, category%>
+		      	<%end%>
+		        <textarea disabled style="color:black; margin: 10px 0px 10px 0px" class="form-control"><%= article.body %></textarea>
+		        <div class="row" style="margin-left: 2px">
+			        <a class="btn btn-primary" href="#">Me gusta! <span class="glyphicon glyphicon-thumbs-up"></span>
+			        </a>
+			        <% if current_account.role == "admin" %>
+			          <%= link_to 'Editar artículo', edit_article_path(article) %> ||
+								<%= link_to 'Artículos', articles_path %>
+							<%end%>
+			      </div>
+	        </div>
+	        <hr style="border:0.3px solid black">
+				</div>
+			</div>
+		</div>
+  </div>
+	<%end%>
 	<br>
 	<% if current_account.role == "admin" %>
-		<%= link_to 'Editar categoria', edit_category_path(@category) %>
 		<% link_to 'Categorias', categories_path %>
 	<%end%>
 </div>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <a id="top"></a>
     <title>Ejetour</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +11,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright|Dancing+Script:400,700|Eagle+Lake|Felipa|Montserrat|Oleo+Script+Swash+Caps|Quintessential|Satisfy|Smythe" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Dosis|Poiret+One" rel="stylesheet">
+        <!--font-family: 'Comfortaa', cursive;
+        font-family: 'Dosis', sans-serif;
+        font-family: 'Poiret One', cursive;-->
 
     <nav class = "navbar navbar-inverse" role = "navigation" style="
         background-color: rgba(0,0,0,1);
@@ -38,9 +44,9 @@
                 </li>
                 <% if user_signed_in? and current_account%>
                     <% unless current_account.role == "root"%>
-                        <li><%= link_to "A donde ir", regions_path %></li>
+                        <li style="background-color: rgba(61,0,120,.5)"><%= link_to "A donde ir", regions_path %></li>
                         <% current_account.categories.each do |category| %>
-                            <li style="background-color: rgba(30,200,100,.3)"><%= link_to category.name, category %></li>
+                            <li style="background-color: rgba(22,102,55,.5)"><%= link_to category.name, category %></li>
                         <%end%>
                     <%end%>
                 <%end%>
@@ -51,6 +57,14 @@
     </nav>
   </head>
   <body>
+    <div class="sticky-container">
+    <ul class="sticky">
+        <li> <a href="#top"><img width="32" height="32" title="" alt="" src="https://maxcdn.icons8.com/Android_L/PNG/512/User_Interface/circled_chevron_up-512.png" /></a>
+        </li>
+        <li> <a href="/"><img width="32" height="32" title="" alt="" src="http://www.othmar.at/minis/images/home.svg" /></a>
+        </li>
+    </ul>
+    </div>
   <font color="black">
 
     <%= yield %>

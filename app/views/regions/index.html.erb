@@ -1,37 +1,55 @@
 <!--p id="notice"><%= notice %></p-->
+<div class="jumbotron sombra donde-ir">
+  <h2 style="font-size: 50px; text-align: center; font-color: white">Regiones</h2>
+</div>
 <div class="container">
-  <h1>Regiones</h1>
-  <% if current_account.role == "admin" %>
-    <%= link_to 'Nueva region', new_region_path %>
-  <%end%>
-  <br><br>
-  <div class="row">
-      <div class="col-md-12">
-        <table class="table table-hover table-condensed table-bordered">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Descripción</th>
-              <!--th>Imagen</th-->
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @regions.each do |region| %>
-              <tr>
-                <td><%= region.nombre %></td>
-                <td><%= region.descripcion %></td>
-                <!--td><%= region.imagen %></td-->
-                <td><%= link_to 'Ir', region %></td>
-                <% if current_account.role == "admin" %>
-                <td><%= link_to 'Editar', edit_region_path(region) %></td>
-                <td><%= link_to 'Eliminar', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <%end%>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+  <div>
+    <% if current_account.role == "admin" %>
+      <h4><%= link_to 'Nueva region', new_region_path %></h4>
+    <%else%>
+      <h4>Elige a donde ir</h4>
+    <%end%>
+    <hr style="border:0.3px solid black">
+  </div>
+  <div class="col" style="margin: 40px 20px 20px 20px;">
+    <div class="row-md-6">
+    <% @regions.each do |region| %>
+      <%= link_to region, :style=>'color:#FFFFFF;' do %>
+      <div class="col text-right" style="background-image: url(<%=region.imagen.url()%>); height: 100px;">
+        <h1 style="font-size: 40px"> <%= region.nombre %></h1>
       </div>
+      <%end%>
+    <%end%>
     </div>
   </div>
+  <br><br>
+  <!--div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover table-condensed table-bordered">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Imagen</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @regions.each do |region| %>
+            <tr>
+              <td><%= region.nombre %></td>
+              <td><%= region.descripcion %></td>
+              <td><%= region.imagen %></td>
+              <td><%= link_to 'Ir', region %></td>
+              <% if current_account.role == "admin" %>
+              <td><%= link_to 'Editar', edit_region_path(region) %></td>
+              <td><%= link_to 'Eliminar', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <%end%>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div-->
+</div>
