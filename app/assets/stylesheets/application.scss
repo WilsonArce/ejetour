@@ -130,10 +130,11 @@ margin: 0px 0px 1px 0px;
 //-o-transition: all 0.25s ease-in-out;
 //transition: all 0.25s ease-in-out;
 cursor: pointer;
-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-//filter: gray;
--webkit-filter: grayscale(100%);
+//filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+filter: grayscale(100%);
+//-webkit-filter: grayscale(100%);
 }
+
 .sticky li:hover {
 //margin-left: -115px;
 /*-webkit-transform: translateX(-115px);
@@ -143,7 +144,8 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><
 		transform:translateX(-115px);*/
 		/*background-color: #8e44ad;*/
 //filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
--webkit-filter: grayscale(0%);
+//-webkit-filter: grayscale(0%);
+filter: grayscale(0%);
 }
 .sticky li img {
 float: left;
