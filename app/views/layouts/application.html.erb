@@ -35,7 +35,7 @@
                     <a href = "#opcionesCuenta" class = "dropdown-toggle " data-toggle = "dropdown" >
                     <span class="glyphicon glyphicon-info-sign">
                     </a>
-                    <ul class = "nav navbar-nav navbar-inverse dropdown-menu" role = "navigation" style="font-size: 0.8em;background-color: rgba(4,4,40,0.9);"> 
+                    <ul class = "nav navbar-nav navbar-inverse dropdown-menu" role = "navigation" style="font-size: 0.8em;background-color: rgba(57,57,64,0.9);"> 
                         <li><a href = "/">Nosotros</a></li>
                         <li><a href = "/">Contactos</a></li>
                         <li><a href = "/">Comentarios</a></li>
@@ -43,7 +43,7 @@
                 </li>
                 <% if user_signed_in? and current_account%>
                     <% unless current_account.role == "root"%>
-                        <li style="background-color: rgba(61,0,120,.5)"><%= link_to "A donde ir", regions_path %></li>
+                        <li style="background-color: rgba(10,18,107,.5)"><%= link_to "A donde ir", regions_path %></li>
                         <% current_account.categories.each do |category| %>
                             <li style="background-color: rgba(22,102,55,.5)"><%= link_to category.name, category %></li>
                         <%end%>
